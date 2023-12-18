@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
+import { useGetProductsList } from '../../../hooks/useGetProductsList';
 
 type ItemData = {
   id: string;
@@ -36,18 +37,17 @@ const Item = ({item, onPress, backgroundColor, textColor}: ItemProps) => (
 );
 
 export default function HomeScreen() {
-  const [selectedId, setSelectedId] = useState<string>();
-  const [data, setData] = useState<ItemData[]>([]);
+  const [selectedId, setSelectedId] = useState<string>(); 
+
+  const { isPending, isError, error, data } = useGetProductsList();
   
-  useEffect(() => {
-    fetch('https://dummyjson.com/products')
-    .then(res => res.json())
-    .then(json => {
-      console.log(json.products);
-      setData([...json.products])
-    })
-    .catch(error => console.log('Have an error: ', error))
-  }, [])
+  if (isPending) {
+    return <Text>Products list is loading ... </Text>
+  };
+
+  if (isError) {
+    return <Text>Error: {error.message}</Text> 
+  }
 
   const renderItem = ({item}: {item: ItemData} ) => {
     const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
@@ -65,7 +65,7 @@ export default function HomeScreen() {
 
   return (
     <FlatList
-      data={data}
+      data={data ?? []}
       renderItem={renderItem}
       keyExtractor={item => item.id}
       extraData={selectedId}
