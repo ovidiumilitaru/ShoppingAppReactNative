@@ -6,15 +6,19 @@
  */
 
 import React from 'react';
-import BottomTabNavigation from './src/navigators/BottomTabNavigators';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import styled from 'styled-components/native';
+import BottomTabNavigation from './src/navigators/BottomTabNavigators';
 
 export default function App(): React.JSX.Element {
-
+  const queryClient = new QueryClient();
+  
   return (
-    <ContainerSafeAreaView >
-      <BottomTabNavigation />
-    </ContainerSafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <ContainerSafeAreaView >
+        <BottomTabNavigation />
+      </ContainerSafeAreaView>
+    </QueryClientProvider>
   );
 };
 
