@@ -6,6 +6,8 @@ import { useGetProductsList } from '../../../hooks/useGetProductsList';
 type ItemData = {
   id: string;
   title: string;
+  brand: string;
+  category: string;
 };
 
 type ItemProps = {
@@ -15,24 +17,11 @@ type ItemProps = {
   textColor: string;
 };
 
-const DUMMYDATA: ItemData[] = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-];
-
 const Item = ({item, onPress, backgroundColor, textColor}: ItemProps) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, {backgroundColor}]}>
-    <Text style={[styles.title, {color: textColor}]}>{item.title}</Text>
+    <Text style={[styles.title, {color: textColor}]}>Title: {item.title}</Text>
+    <Text style={[styles.brand, {color: textColor}]}>Brand: {item.brand}</Text>
+    <Text style={[styles.category, {color: textColor}]}>Category: {item.category}</Text>
   </TouchableOpacity>
 );
 
@@ -79,11 +68,21 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#f9c2ff',
-    padding: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 18,
+    paddingVertical: 4,
   },
+  brand: {
+    fontSize: 16,
+    paddingVertical: 4,
+  },
+  category: {
+    fontSize: 14,
+    paddingVertical: 4,
+  }
 });
