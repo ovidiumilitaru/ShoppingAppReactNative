@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 
 
 export default function ShoppingCartScreen() {
+  
   return (
     <ShoppingCartScreenView>
       <Text style={{ fontSize: 20, color: '#ffffff'}}>ShoppingCart Screen styled</Text>
