@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import debounce from 'lodash.debounce';
 
 export default function HomeScreenFilter(props: any) {
   const { onFilterText } = props;
@@ -6,7 +7,8 @@ export default function HomeScreenFilter(props: any) {
   return (
     <FilterInput 
       placeholder="Filter by category" 
-      onChangeText={onFilterText}
+      onChangeText={debounce(onFilterText, 1000)}
+      autoCapitalize="none"
     />
   )
 }
