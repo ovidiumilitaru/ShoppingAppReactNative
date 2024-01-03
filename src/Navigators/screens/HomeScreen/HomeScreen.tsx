@@ -3,6 +3,7 @@ import { Text, FlatList, TouchableOpacity, StyleSheet, TextInput, View } from 'r
 import styled from 'styled-components/native';
 import { useGetProductsList } from '../../../hooks/useGetProductsList';
 import { HomeScreenFilter, ProductsList } from '../../../components/index';
+import { COLORS } from '../../../utils/constants';
 
 
 export default function HomeScreen() {
@@ -47,7 +48,7 @@ export default function HomeScreen() {
 }
 
 const HomeScreenContainer = styled.View`
-  background-color: tomato;
+  background-color: ${COLORS.tomato};
   flex: 1; 
   padding-left: 10px;
   padding-right: 10px; 

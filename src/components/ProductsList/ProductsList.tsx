@@ -1,5 +1,6 @@
 import { Text, FlatList, TouchableOpacity, StyleSheet, View } from 'react-native';
 import { useState } from 'react';
+import { COLORS } from '../../utils/constants';
 
 // import styled from 'styled-components/native';
 
@@ -32,8 +33,8 @@ export default function ProductsList(props: any) {
   const { products } = props;
 
   const renderItem = ({item}: {item: ItemData} ) => {
-    const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
-    const color = item.id === selectedId ? 'white' : 'black';
+    const backgroundColor = item.id === selectedId ? COLORS.purpleDark : COLORS.purpleLight;
+    const color = item.id === selectedId ? COLORS.white : COLORS.black;
 
     return (
       <Item
@@ -57,7 +58,7 @@ export default function ProductsList(props: any) {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: COLORS.purpleLight,
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginVertical: 8,
