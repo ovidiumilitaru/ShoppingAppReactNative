@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import debounce from 'lodash.debounce';
+import { COLORS } from "../../utils/constants";
 
 export default function HomeScreenFilter(props: any) {
   const { onFilterText } = props;
@@ -14,8 +15,8 @@ export default function HomeScreenFilter(props: any) {
 }
 
 const FilterInput = styled.TextInput`
-  background-color: lightgray;
-  border: 1px solid green;
+  background-color: ${COLORS.grayLight};
+  border: 1px solid ${COLORS.greenLight};
   padding: 10px;
   margin-top: 10px;
   height: 40px;

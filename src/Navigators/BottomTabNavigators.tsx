@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AccountScreen from './screens/AccountScreen/AccountScreen';
 import ShoppingCartScreen from './screens/ShoppingCartScreen/ShoppingCartScreen';
+import { COLORS } from '../utils/constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +15,8 @@ function MyTabs() {
     <Tab.Navigator
       initialRouteName='HomeScreen'
       screenOptions={{
-        tabBarActiveTintColor: '#0615bf',
-        tabBarActiveBackgroundColor: '#cef531',
+        tabBarActiveTintColor: COLORS.bluePrimary,
+        tabBarActiveBackgroundColor: COLORS.greenLight
       }}
     >
       <Tab.Screen 
@@ -61,4 +61,3 @@ export default function BottomTabNavigation() {
     </NavigationContainer>
   )
 }
-
