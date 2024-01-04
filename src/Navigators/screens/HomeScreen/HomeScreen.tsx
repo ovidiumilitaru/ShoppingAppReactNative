@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, FlatList, TouchableOpacity, StyleSheet, TextInput, View } from 'react-native';
+import { Text } from 'react-native';
 import styled from 'styled-components/native';
 import { useGetProductsList } from '../../../hooks/useGetProductsList';
 import { HomeScreenFilter, ProductsList } from '../../../components/index';
