@@ -6,19 +6,31 @@ export default function HomeScreenFilter(props: any) {
   const { onFilterText } = props;
 
   return (
-    <FilterInput 
-      placeholder="Filter by category" 
-      onChangeText={debounce(onFilterText, 1000)}
-      autoCapitalize="none"
-    />
+    <FilterContainer>
+      <FilterInput 
+        placeholder="Filter by category" 
+        onChangeText={debounce(onFilterText, 1000)}
+        autoCapitalize="none"
+      />
+    </FilterContainer>
   )
 }
 
 const FilterInput = styled.TextInput`
-  background-color: ${COLORS.grayLight};
-  border: 1px solid ${COLORS.greenLight};
-  padding: 10px;
-  margin-top: 10px;
+  background-color: ${COLORS.grayLight}; 
+  border: 1px solid ${COLORS.grayPrimary};
+  padding: 8px;
   height: 40px;
+  width: 90%;
+  align-self: center;
 `
+const FilterContainer = styled.View`
+  background-color: ${COLORS.white}; 
+  width: 100%;
+  height: 56px;
+  border-bottom-color: ${COLORS.grayPrimary};
+  border-bottom-width: 1px;
+  justify-content: center;
+  align-items: center;
 
+`

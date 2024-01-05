@@ -48,8 +48,8 @@ export default function HomeScreen() {
 }
 
 const HomeScreenContainer = styled.View`
-  background-color: ${COLORS.tomato};
+  background-color: ${COLORS.white};
   flex: 1; 
-  padding-left: 10px;
-  padding-right: 10px; 
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
 `

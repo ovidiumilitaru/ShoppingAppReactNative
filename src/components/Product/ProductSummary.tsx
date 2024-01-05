@@ -13,10 +13,10 @@ export default function ProductSummary({productData, onPress, backgroundColor, t
 };
 
 const ProductSummaryButtonContainer = styled.TouchableOpacity<{onPress: () => void, backgroundColor: string}>`
-  padding-vertical: 10px;
-  padding-horizontal: 20px;
+  width: 90%;
+  padding: 8px;
   margin-vertical: 8px;
-  margin-horizontal: 16px;
+  align-self: center;
   background-color: ${(props) => (props.backgroundColor)};
 `
 
