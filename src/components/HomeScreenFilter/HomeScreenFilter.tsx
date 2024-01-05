@@ -1,9 +1,13 @@
 import styled from "styled-components/native";
 import debounce from 'lodash.debounce';
 import { COLORS } from "../../utils/constants";
+import type { ProductsDataType } from "../../utils/types";
 
-export default function HomeScreenFilter(props: any) {
-  const { onFilterText } = props;
+type PropsType = {
+  onFilterText: (t: string) => void;
+};
+
+export default function HomeScreenFilter({onFilterText}: PropsType) {
 
   return (
     <FilterContainer>

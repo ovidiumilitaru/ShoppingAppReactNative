@@ -4,12 +4,12 @@ import styled from 'styled-components/native';
 import { useGetProductsList } from '../../../hooks/useGetProductsList';
 import { HomeScreenFilter, ProductsList } from '../../../components/index';
 import { COLORS } from '../../../utils/constants';
-
+import type { ProductsDataType } from '../../../utils/types';
 
 export default function HomeScreen() {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filterText, setFilterText] = useState<string>('');
+  const [products, setProducts] = useState<ProductsDataType>([]);
+  const [filteredProducts, setFilteredProducts] = useState<ProductsDataType>([]);
+  // const [filterText, setFilterText] = useState<string>('');
 
   const { isPending, isError, error, data } = useGetProductsList();
 
@@ -27,7 +27,7 @@ export default function HomeScreen() {
   }
 
   const filterTextHandler = (text: string) => {
-    setFilterText(text);
+    // setFilterText(text);
 
     if (products) {
       const filteredProducts = products.filter((prod: any) => {
@@ -50,6 +50,4 @@ export default function HomeScreen() {
 const HomeScreenContainer = styled.View`
   background-color: ${COLORS.white};
   flex: 1; 
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
 `
