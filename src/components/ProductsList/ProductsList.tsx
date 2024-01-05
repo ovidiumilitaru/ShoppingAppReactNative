@@ -9,7 +9,7 @@ export default function ProductsList(props: any) {
   const { products } = props;
 
   const renderItem = ({item}: {item: ProductSummaryDataType} ) => {
-    const backgroundColor = item.id === selectedId ? COLORS.purpleDark : COLORS.purpleLight;
+    const backgroundColor = item.id === selectedId ? COLORS.blueDark : COLORS.blueLight;
     const color = item.id === selectedId ? COLORS.white : COLORS.black;
 
     return (
