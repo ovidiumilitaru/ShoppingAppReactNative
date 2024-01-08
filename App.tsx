@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { StatusBar } from 'react-native'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import styled from 'styled-components/native';
 import BottomTabNavigation from './src/navigators/BottomTabNavigators';
@@ -16,6 +17,7 @@ export default function App(): React.JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <ContainerSafeAreaView >
+        <StatusBar backgroundColor="#fff" barStyle="default" />
         <BottomTabNavigation />
       </ContainerSafeAreaView>
     </QueryClientProvider>

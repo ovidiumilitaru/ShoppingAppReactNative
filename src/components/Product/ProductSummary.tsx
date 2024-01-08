@@ -4,12 +4,6 @@ import type { ProductSummaryPropsType } from '../../utils/types';
 export default function ProductSummary({productData, onPress, backgroundColor, textColor}: ProductSummaryPropsType) {
 
   return (
-    // <ProductSummaryButtonContainer onPress={onPress} backgroundColor={backgroundColor}>
-    //   <ProductSummaryTextTitle textColor={textColor}>Title: {productData.title}</ProductSummaryTextTitle>
-    //   <ProductSummaryTextBrand textColor={textColor}>Brand: {productData.brand}</ProductSummaryTextBrand>
-    //   <ProductSummaryTextCategory textColor={textColor}>Category: {productData.category}</ProductSummaryTextCategory>
-    // </ProductSummaryButtonContainer>
-
     <ProductSummaryButtonContainer onPress={onPress} backgroundColor={backgroundColor}>
       <ProductSummaryWrapper>
         <ProductSummaryImageContainer>
