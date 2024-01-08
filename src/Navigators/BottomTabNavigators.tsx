@@ -22,6 +22,7 @@ function MyTabs() {
         name="Home"
         component={HomeScreen}
         options={{
+          headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }): ReactNode =>  {
             return <MaterialCommunityIcons name='home' color={color} size={size}  />;
@@ -49,7 +50,6 @@ function MyTabs() {
         }}
       />
     </Tab.Navigator>
-
   )
 }
 
