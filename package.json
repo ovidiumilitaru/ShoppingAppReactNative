@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
     "@tanstack/react-query": "^5.14.1",
     "@types/lodash.debounce": "^4.0.9",
     "lodash.debounce": "^4.0.8",
