@@ -1,5 +1,7 @@
+import { RouteProp } from "@react-navigation/native";
+
 export type ProductDataType = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   price: number;
@@ -24,6 +26,14 @@ export type ProductsInfoType = {
 export type ProductSummaryPropsType = {
   productData: ProductDataType;
   onPress: () => void;
-  backgroundColor: string;
-  textColor: string;
 };
+
+export type RootStackParamList = {
+  ProductsSceen: undefined;
+  ProductDetailsScreen: { prodId: number };
+}
+
+export type RootRouteProps<RouteName extends keyof RootStackParamList> = RouteProp<
+  RootStackParamList,
+  RouteName
+>;

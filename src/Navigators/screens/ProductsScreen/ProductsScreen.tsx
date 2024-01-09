@@ -9,7 +9,6 @@ import type { ProductsDataType } from '../../../utils/types';
 export default function ProductsScreen() {
   const [products, setProducts] = useState<ProductsDataType>([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductsDataType>([]);
-  // const [filterText, setFilterText] = useState<string>('');
 
   const { isPending, isError, error, data } = useGetProductsList();
 
@@ -27,7 +26,6 @@ export default function ProductsScreen() {
   }
 
   const filterTextHandler = (text: string) => {
-    // setFilterText(text);
 
     if (products) {
       const filteredProducts = products.filter((prod: any) => {
@@ -42,7 +40,6 @@ export default function ProductsScreen() {
       <HomeScreenFilter onFilterText={filterTextHandler} />
       <ProductsList products={filteredProducts} />
     </HomeScreenContainer>
-
   )
 }
 
@@ -50,18 +47,3 @@ const HomeScreenContainer = styled.View`
   background-color: ${COLORS.white};
   flex: 1; 
 `
-
-
-// export default function HomeProducts() {
-//   const navigation = useNavigation();
-//   const pressHandler = () => {
-//     navigation.navigate('HomeProductDetails')
-//   }
-//   return (
-//     <View>
-//       <Pressable onPress={pressHandler}>
-//         <Text>HomeProducts STACK</Text>
-//       </Pressable>
-//     </View>
-//   )
-// }
