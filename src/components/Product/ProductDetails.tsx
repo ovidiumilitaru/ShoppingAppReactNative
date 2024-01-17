@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import type { ProductDataType } from '../../utils/types';
 import { COLORS, LOREMIPSUM } from "../../utils/constants";
+import { Slider } from '../../components/index';
 
 interface Props {
   productDetails?: ProductDataType
@@ -8,14 +9,10 @@ interface Props {
 
 export default function ProductDetails({productDetails}: Props) {
 
-  console.log("productDetails = ", productDetails)
-
   return (
     <ProductDetailsContainer>
       <ProductDetailsWrapper>
-        <ProductDetailsCaruselContainer>
-          <ProductDetailsCaruselDummyText>placeholder carusel</ProductDetailsCaruselDummyText>
-        </ProductDetailsCaruselContainer>
+        <Slider images={productDetails?.images} />
 
         <ProductDetailsPrimaryInfoContainer>
           <TextProductTitle>{productDetails?.title }</TextProductTitle>
@@ -50,24 +47,12 @@ const ProductDetailsContainer = styled.View`
 const ProductDetailsWrapper = styled.ScrollView`
   width: 100%;
   /* height: 95%; */
-`
-
-const ProductDetailsCaruselContainer = styled.View`
-  width: 100%;
-  /* height: 40%; */
-  height: 200px;
-  background-color: ${COLORS.purpleLight};
-`;
-
-const ProductDetailsCaruselDummyText = styled.Text`
-  text-align: center;
 `;
 
 const ProductDetailsPrimaryInfoContainer = styled.View`
   margin: 8px;
   padding: 8px 4px;
   flex-direction: row;
-  border: 1px solid green;
 `;
 
 const TextProductTitle = styled.Text`
@@ -126,8 +111,6 @@ const ProductDetailsDescription = styled.Text`
   padding-top: 8px;
   color: ${COLORS.black}
 `;
-
-
 
 const AddToCartButton = styled.Text`
   color: ${COLORS.blueDark};
