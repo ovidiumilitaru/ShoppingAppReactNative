@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Text } from 'react-native';
 import styled from 'styled-components/native';
-import { useGetProductsList } from '../../../hooks/useGetProductsList';
-import { HomeScreenFilter, ProductsList } from '../../../components/index';
+import { getProducts } from '../../../queries/getProducts';
 import { COLORS } from '../../../utils/constants';
 import type { ProductsDataType } from '../../../utils/types';
+import { HomeScreenFilter, ProductsList, Loading, Error } from '../../../components/index';
 
 export default function ProductsScreen() {
   const [products, setProducts] = useState<ProductsDataType>([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductsDataType>([]);
 
-  const { isPending, isError, error, data } = useGetProductsList();
+  const { isPending, isError, error, data } = getProducts();
 
   useEffect(() => {
     setProducts(data);
@@ -18,11 +17,11 @@ export default function ProductsScreen() {
   }, [data]);
   
   if (isPending) {
-    return <Text>Products list is loading ... </Text>
+    return <Loading />
   };
 
   if (isError) {
-    return <Text>Error: {error.message}</Text> 
+    return <Error errorName={error.name} errorMsg={error.message} /> 
   }
 
   const filterTextHandler = (text: string) => {

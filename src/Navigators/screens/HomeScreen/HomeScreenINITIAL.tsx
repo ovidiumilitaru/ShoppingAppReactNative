@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
-import { useGetProductsList } from '../../../hooks/useGetProductsList';
+import { useGetProductsList } from '../../../queries/getProducts';
 import { HomeScreenFilter, ProductsList } from '../../../components/index';
 import { COLORS } from '../../../utils/constants';
 import type { ProductsDataType } from '../../../utils/types';
