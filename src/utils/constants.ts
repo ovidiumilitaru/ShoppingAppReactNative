@@ -18,10 +18,11 @@ export const COLORS = {
   purpleDark: '#6e3b6e',
   purpleLight: '#f9c2ff',
 
+  redPrimary: '#cb2424',
 }
 
 // urls for fetchs
 export const URL = {
-  baseUrl: 'https://dummyjson.com/',
+  baseUrl: 'https://dummyjson.com',
   products: 'products',
 }
