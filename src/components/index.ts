@@ -2,6 +2,7 @@ import HomeScreenFilter from './HomeScreenFilter/HomeScreenFilter';
 import ProductsList from './ProductsList/ProductsList';
 import ProductSummary from './Product/ProductSummary';
 import ProductDetails from './Product/ProductDetails';
+import Slider from './Slider/Slider'
 import Loading from './Loading/Loading';
 import Error from './Error/Error';
 
@@ -10,6 +11,7 @@ export {
   ProductsList, 
   ProductSummary, 
   ProductDetails, 
+  Slider,
   Loading, 
   Error 
 };
