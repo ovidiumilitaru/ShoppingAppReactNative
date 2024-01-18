@@ -1,13 +1,17 @@
 import styled from "styled-components/native";
 import type { ProductDataType } from '../../utils/types';
 import { COLORS, LOREMIPSUM } from "../../utils/constants";
-import { Slider } from '../../components/index';
+import { Slider, AddToCartBtn } from '../../components/index';
 
 interface Props {
   productDetails?: ProductDataType
 }
 
 export default function ProductDetails({productDetails}: Props) {
+  const addToCartHandler = () => {
+    console.log("add to cart pressed, prodId = ", productDetails?.id);
+
+  };
 
   return (
     <ProductDetailsContainer>
@@ -32,7 +36,7 @@ export default function ProductDetails({productDetails}: Props) {
           <ProductDetailsDescription>{productDetails?.description} {LOREMIPSUM} END_DESCRIPTION</ProductDetailsDescription>
         </ProductDetailsDescriptionContainer>
       </ProductDetailsWrapper>
-      <AddToCartButton>Add to cart placeholder BTN</AddToCartButton>
+      <AddToCartBtn onAddToCart={addToCartHandler} />
     </ProductDetailsContainer>
   )
 }
