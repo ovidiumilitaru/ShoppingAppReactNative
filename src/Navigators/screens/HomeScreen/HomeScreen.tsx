@@ -1,14 +1,13 @@
-// import { View, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProductsScreen from '../ProductsScreen/ProductsScreen';
-import ProductDetailsScreen from '../ProductDetailsScreen/ProductDetailsScreen'
+import ProductDetailsScreen from '../ProductDetailsScreen/ProductDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
 function MyStack() {
   return (
     <Stack.Navigator 
-      initialRouteName='Products'
+      initialRouteName='Products' 
     >
       <Stack.Screen 
         name="ProductsScreen" 

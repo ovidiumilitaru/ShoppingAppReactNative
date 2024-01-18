@@ -23,7 +23,8 @@ const BtnContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-vertical: 4px;
+  padding-top: 4px;
+  padding-bottom: 10px;
   margin: 0px auto;
 `
 
