@@ -21,4 +21,3 @@ const ShoppingCartScreenView = styled.View`
   align-items: center; 
   background-color: ${COLORS.purplePrimary};
 `;
-
