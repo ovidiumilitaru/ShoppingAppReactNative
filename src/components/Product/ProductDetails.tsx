@@ -1,16 +1,30 @@
 import styled from "styled-components/native";
-import type { ProductDataType } from '../../utils/types';
+import { ProductDataType, ActionsType } from '../../utils/types';
 import { COLORS, LOREMIPSUM } from "../../utils/constants";
 import { Slider, AddToCartBtn } from '../../components/index';
+import { useContext } from "react";
+import { CartContext } from '../../utils/store/CartContext';
+import { itemAlreadyInCart } from "../../utils/getters";
 
 interface Props {
   productDetails?: ProductDataType
 }
 
 export default function ProductDetails({productDetails}: Props) {
-  const addToCartHandler =  () => {
+  const { state, dispatch } = useContext(CartContext);
 
-    console.log("add to cart pressed, prodId = ", productDetails?.id);
+  const addToCartHandler =  () => {
+    const payload = {
+      id: productDetails?.id,
+      title: productDetails?.title,
+      price: productDetails?.price,
+      qty: 1
+    };
+
+    dispatch({
+      type: ActionsType.ADD_PROD_TO_CART,
+      payload
+    })
   };
 
   return (
