@@ -8,7 +8,8 @@ interface Props {
 }
 
 export default function ProductDetails({productDetails}: Props) {
-  const addToCartHandler = () => {
+  const addToCartHandler =  () => {
+
     console.log("add to cart pressed, prodId = ", productDetails?.id);
   };
 

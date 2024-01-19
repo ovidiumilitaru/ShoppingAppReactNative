@@ -1,8 +1,6 @@
 import { FlatList } from 'react-native';
-import { useState } from 'react';
 import { ProductSummary } from '../index'
 import type { ProductDataType } from '../../utils/types';
-import { COLORS } from '../../utils/constants';
 import { useNavigation, ParamListBase,  NavigationProp } from '@react-navigation/native';
 
 export default function ProductsList(props: any) {
