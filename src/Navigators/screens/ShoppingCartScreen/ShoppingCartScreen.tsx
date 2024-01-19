@@ -6,7 +6,7 @@ import { COLORS } from '../../../utils/constants';
 
 
 export default function ShoppingCartScreen() {
-  
+
   return (
     <ShoppingCartScreenView>
       <Text style={{ fontSize: 20, color: COLORS.white }}>ShoppingCart Screen styled</Text>
