@@ -20,14 +20,6 @@ export default function HomeScreenFilter({onFilterText}: PropsType) {
   )
 }
 
-const FilterInput = styled.TextInput`
-  background-color: ${COLORS.grayLight}; 
-  border: 1px solid ${COLORS.grayPrimary};
-  padding: 8px;
-  height: 40px;
-  width: 90%;
-  align-self: center;
-`
 const FilterContainer = styled.View`
   background-color: ${COLORS.white}; 
   width: 100%;
@@ -36,5 +28,13 @@ const FilterContainer = styled.View`
   border-bottom-width: 1px;
   justify-content: center;
   align-items: center;
+`;
 
-`
+const FilterInput = styled.TextInput`
+  background-color: ${COLORS.grayLight}; 
+  border: 1px solid ${COLORS.grayPrimary};
+  padding: 8px;
+  height: 40px;
+  width: 90%;
+  align-self: center;
+`;
