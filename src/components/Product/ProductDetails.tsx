@@ -4,7 +4,6 @@ import { COLORS, LOREMIPSUM } from "../../utils/constants";
 import { Slider, AddToCartBtn } from '../../components/index';
 import { useContext } from "react";
 import { CartContext } from '../../utils/store/CartContext';
-import { itemAlreadyInCart } from "../../utils/getters";
 
 interface Props {
   productDetails?: ProductDataType
@@ -18,11 +17,12 @@ export default function ProductDetails({productDetails}: Props) {
       id: productDetails?.id,
       title: productDetails?.title,
       price: productDetails?.price,
-      qty: 1
+      qty: 1,
+      thumbnail: productDetails?.thumbnail,
     };
 
     dispatch({
-      type: ActionsType.ADD_PROD_TO_CART,
+      type: ActionsType.ADD_ITEM_TO_CART,
       payload
     })
   };

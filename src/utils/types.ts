@@ -1,4 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
+import { type Dispatch } from "react";
+
 
 export type ProductDataType = {
   id: number;
@@ -38,13 +40,20 @@ export type RootRouteProps<RouteName extends keyof RootStackParamList> = RoutePr
   RouteName
 >;
 
-export type CartProductType = {
+export type CartItemType = {
   id: number;
   title: string;
   price: number;
   qty: number;
-}
-export type CartType = CartProductType[];
+  thumbnail: string;
+};
+
+export type CartType = { items: [] | CartItemType[] };
+
+export type CartContextType = {
+  state: CartType; 
+  dispatch: Dispatch<any>;
+};
 
 export type ActionMap<M extends {[ index: string ]: any}> = {
   [Key in keyof M]: M[Key] extends undefined
@@ -58,17 +67,20 @@ export type ActionMap<M extends {[ index: string ]: any}> = {
 }
 
 export enum ActionsType {
-  ADD_PROD_TO_CART = 'ADD_TO_CART',
-  REMOVE_PROD_FROM_CART = 'REMOVE_PROD_FROM_CART',
-  INCREASE_PROD_QUANTITY = 'INCREASE_PROD_QUANTITY',
-  DECREASE_PROD_QUANTITY = 'DECREASE_PROD_QUANTITY',
+  ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART',
+  REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART',
+  INCREASE_ITEM_QUANTITY = 'INCREASE_ITEM_QUANTITY',
+  DECREASE_ITEM_QUANTITY = 'DECREASE_ITEM_QUANTITY',
+  EMPTY_CART = 'EMPTY_CART_CART',
 }
 
 export type ShoppingCartActions = ActionMap<ShoppingCartPayload>[keyof ActionMap<ShoppingCartPayload>]
 
 export type ShoppingCartPayload = {
-  [ActionsType.ADD_PROD_TO_CART]: CartProductType;
-  [ActionsType.REMOVE_PROD_FROM_CART]: {
+  [ActionsType.ADD_ITEM_TO_CART]: CartItemType;
+  
+  [ActionsType.REMOVE_ITEM_FROM_CART]: {
     id: number;
-  }
-}
+  };
+  
+};
