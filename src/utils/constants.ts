@@ -23,8 +23,9 @@ export const COLORS = {
 
 // urls for fetchs
 export const URL = {
-  baseUrl: 'https://dummyjson.com',
-  products: 'products',
+  BASE_URL: 'https://dummyjson.com',
+  PRODUCTS: 'products',
+  SEARCH: 'search?q='
 }
 
 export const LOREMIPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
