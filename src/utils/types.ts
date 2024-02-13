@@ -66,7 +66,7 @@ export type ActionMap<M extends {[ index: string ]: any}> = {
     }
 }
 
-export enum ActionsType {
+export enum ActionType {
   ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART',
   REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART',
   INCREASE_ITEM_QUANTITY = 'INCREASE_ITEM_QUANTITY',
@@ -77,10 +77,19 @@ export enum ActionsType {
 export type ShoppingCartActions = ActionMap<ShoppingCartPayload>[keyof ActionMap<ShoppingCartPayload>]
 
 export type ShoppingCartPayload = {
-  [ActionsType.ADD_ITEM_TO_CART]: CartItemType;
+  [ActionType.ADD_ITEM_TO_CART]: CartItemType;
   
-  [ActionsType.REMOVE_ITEM_FROM_CART]: {
+  [ActionType.REMOVE_ITEM_FROM_CART]: {
     id: number;
   };
   
+  [ActionType.INCREASE_ITEM_QUANTITY]: {
+    id: number;
+  };
+
+  [ActionType.DECREASE_ITEM_QUANTITY]: {
+    id: number;
+  };
+
+  [ActionType.EMPTY_CART]: CartType;
 };

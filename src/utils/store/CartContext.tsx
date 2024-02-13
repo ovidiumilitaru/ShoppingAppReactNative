@@ -2,7 +2,6 @@ import React, { createContext, useReducer, type Dispatch } from "react";
 import { cartReducers } from './cartReducers';
 import type { CartType, CartContextType } from "../types";
 
-
 const initialState: CartType = { items: [] };
 
 export const CartContext = createContext<CartContextType>({ 

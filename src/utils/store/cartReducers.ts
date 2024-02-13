@@ -1,12 +1,12 @@
-import type { CartItemType, CartType, ActionMap, ShoppingCartActions, ShoppingCartPayload } from "../types";
+import type { CartType, ShoppingCartActions } from "../types";
 import { getItemAlreadyInCart } from "../../utils/getters";
 
-import { ActionsType } from '../types';
+import { ActionType } from '../types';
 
 export const cartReducers = (state: CartType, action: ShoppingCartActions) => {
 
   switch (action.type) {
-    case ActionsType.ADD_ITEM_TO_CART: {
+    case ActionType.ADD_ITEM_TO_CART: {
       if (state.items.length === 0) {
         return {...state, items: [...state.items, action.payload]}
       } 
@@ -30,19 +30,43 @@ export const cartReducers = (state: CartType, action: ShoppingCartActions) => {
       }
     };
 
-    case ActionsType.REMOVE_ITEM_FROM_CART: {
-      console.log('cartReducers, remove product from cart');
+    case ActionType.REMOVE_ITEM_FROM_CART: {
       return {
         ...state,
         items: state.items.filter(item => item.id !== action.payload.id)};
     };
 
-    // case ActionsType.EMPTY_CART: {
-    //   console.log('cartReducers, empty cart');
-    //   return {
-    //     ...state
-    //   }
-    // };
+    case ActionType.INCREASE_ITEM_QUANTITY: {
+      return {
+        ...state, 
+        items: state.items.map(item => {
+          return (item.id === action.payload.id) ? 
+            {
+              ...item, 
+              qty: item.qty + 1
+            } : item
+        }) 
+        };
+    };
+
+    case ActionType.DECREASE_ITEM_QUANTITY: {
+      return {
+        ...state, 
+        items: state.items.map(item => {
+          return (item.id === action.payload.id) ? 
+            {
+              ...item, 
+              qty: item.qty - 1
+            } : item
+        }) 
+        };
+    };
+
+    case ActionType.EMPTY_CART: {
+      return {
+        items: []
+      }
+    };
 
     default: 
       return state;
