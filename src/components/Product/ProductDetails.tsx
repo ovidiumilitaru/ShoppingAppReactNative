@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { ProductDataType, ActionsType } from '../../utils/types';
+import { ProductDataType, ActionType } from '../../utils/types';
 import { COLORS, LOREMIPSUM } from "../../utils/constants";
 import { Slider, AddToCartBtn } from '../../components/index';
 import { useContext } from "react";
@@ -22,7 +22,7 @@ export default function ProductDetails({productDetails}: Props) {
     };
 
     dispatch({
-      type: ActionsType.ADD_ITEM_TO_CART,
+      type: ActionType.ADD_ITEM_TO_CART,
       payload
     })
   };
