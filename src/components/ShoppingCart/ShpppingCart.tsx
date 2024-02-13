@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { ListRenderItem, FlatList } from 'react-native';
 
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { CartContext } from "../../utils/store/CartContext";
 import { COLORS } from "../../utils/constants";
 import { ShoppingCartItem, ShoppingCartEmpty } from "../index";
@@ -27,13 +27,13 @@ export default function ShoppingCart() {
   const { state, dispatch } = useContext<CartContextType>(CartContext);
   const shoppingCartItems: CartItemType[] = state.items;
 
-  const renderItem: ListRenderItem<CartItemType> = ({ item }: {item: CartItemType}) => {
+  const renderItem: ListRenderItem<CartItemType> = useCallback(({ item }: {item: CartItemType}) => {
     return (
       <ShoppingCartItem 
         item={item}
       />
     )
-  }
+  }, [])
 
   return (
     <ShoppingCartContainer>        

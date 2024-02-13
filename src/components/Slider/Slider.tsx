@@ -1,5 +1,5 @@
 import { View, Animated, FlatList } from "react-native";
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import SlideItem from "./SlideItem";
 import SliderPagination from './SliderPagination';
 
@@ -40,11 +40,15 @@ export default function Slider({images}: Props) {
     itemVisiblePercentThreshold: 50
   }).current;
 
+  const renderItem = useCallback(({item}: {item: string}) => {
+    return <SlideItem item={item} />
+  },[]);
+
   return (
     <View>
       <FlatList 
         data={images} 
-        renderItem={({item}) => <SlideItem item={item} />}
+        renderItem={renderItem}
         showsHorizontalScrollIndicator={false}
         horizontal 
         pagingEnabled 
