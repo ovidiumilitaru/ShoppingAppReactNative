@@ -7,14 +7,21 @@ import { HomeScreenFilter, ProductsList, Loading, Error } from '../../../compone
 
 export default function ProductsScreen() {
   const [products, setProducts] = useState<ProductsDataType>([]);
-  const [filteredProducts, setFilteredProducts] = useState<ProductsDataType>([]);
+  const [filteredText, setFilteredText] = useState<string>('');
 
-  const { isPending, isError, error, data } = getProducts();
+  const { 
+    isPending,
+    isError, 
+    error, 
+    data, 
+    refetch
+  } = getProducts(filteredText);
+
 
   useEffect(() => {
+    refetch();
     setProducts(data);
-    setFilteredProducts(data)
-  }, [data]);
+  }, [data, filteredText]);
   
   if (isPending) {
     return <Loading />
@@ -25,19 +32,13 @@ export default function ProductsScreen() {
   }
 
   const filterTextHandler = (text: string) => {
-
-    if (products) {
-      const filteredProducts = products.filter((prod: any) => {
-        return prod.category.includes(text.toLowerCase());
-      })
-      setFilteredProducts(filteredProducts)
-    }
+    setFilteredText(text);
   };
 
   return (
     <HomeScreenContainer>
       <HomeScreenFilter onFilterText={filterTextHandler} />
-      <ProductsList products={filteredProducts} />
+      <ProductsList products={products} />
     </HomeScreenContainer>
   )
 }
